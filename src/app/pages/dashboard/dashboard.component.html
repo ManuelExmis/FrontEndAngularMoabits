@@ -1,0 +1,76 @@
+<div class="card">
+  <div class="card-body">
+      <h4 class="card-title">Users list</h4>
+      <!-- <h6 class="card-subtitle">Please  <code>.table-hover</code></h6> -->
+      <div class="table-responsive">
+          <table class="table table-hover">
+              <thead>
+                  <tr>
+                      <th>User name</th>
+                      <th>Login</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Address</th>
+                      <th>Date of birth</th>
+                      <th>Age</th>
+                      <th>Rol name</th>
+                      <th>Can view</th>
+                      <th>Can edit</th>
+                      <!-- <th>Can delete</th> -->
+                      <th>Active</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let usuario of usuarios">
+                    <td>
+                        {{ usuario.name }}
+                    </td>
+                    <td>
+                        {{ usuario.login }}
+                    </td>
+                    <td>
+                      {{ usuario.email }}
+                    </td>
+                    <td>
+                      {{ usuario.phone }}
+                    </td>
+                    <td>
+                      {{ usuario.address }}
+                    </td>
+                    <td>
+                      <span class="text-muted"><i class="fa fa-clock-o"></i> {{ usuario.date_of_birth }}</span>
+                    </td>
+                    <td>
+                      {{ usuario.age }}
+                    </td>
+                    <td>
+                      {{ usuario.rol_name }}
+                    </td>
+                    <td>
+                      <input *ngIf="usuario.read" type="checkbox" checked disabled/>
+                      <input *ngIf="!usuario.read" type="checkbox"  disabled/>
+                    </td>
+                    <td>
+                      <input *ngIf="usuario.edit" type="checkbox" checked disabled/>
+                      <input *ngIf="!usuario.edit" type="checkbox" disabled/>
+                    </td>
+                    <td>
+                      <input *ngIf="usuario.active" type="checkbox" checked disabled/>
+                      <input *ngIf="!usuario.active" type="checkbox" disabled/>
+                    </td>
+                  </tr>
+                  <!-- <tr>
+                      <td>1</td>
+                      <td>Milk Powder</td>
+                      <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">0,-3,-2,-4,-5,-4,-3,-2,-5,-1</span> </td>
+                      <td><span class="text-danger text-semibold"><i class="fa fa-level-down" aria-hidden="true"></i> 28.76%</span> </td>
+                  </tr> -->
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+
+
+<button type="button" (click)="showDialog()" icon="pi pi-info-circle" label="Show"></button>
